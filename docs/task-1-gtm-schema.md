@@ -27,3 +27,16 @@ The objective of this implementation is to establish a comprehensive Google Tag 
 | `session_engaged` | Timer / Engagement | Session exceeds GA4 engagement threshold | `engagement_time`, `page_type`, `device_type` | Engagement Report | Engaged Sessions |
 | `outbound_link_click` | Click Trigger | User clicks an external link | `link_url`, `link_text`, `page_name` | Events Report | External Link Users |
 | `consultation_form_submitted` | Custom Event | Consultation landing page form submitted successfully | `clinic_location`, `traffic_source`, `campaign_name` | Conversions Report | Qualified Leads |
+
+
+
+## Booking Form Funnel Tracking
+
+The booking form consists of three sequential steps. Since it is a multi-step form, Google Tag Manager cannot reliably detect step transitions automatically. The frontend application must push a custom event to the `window.dataLayer` whenever a user successfully completes a step. GTM listens for these events using Custom Event Triggers and forwards them to GA4.
+
+| Booking Step | Frontend dataLayer Event | GTM Trigger | GTM Trigger Condition | GA4 Event | GA4 Funnel Condition | Purpose |
+|--------------|--------------------------|-------------|-----------------------|------------|----------------------|---------|
+| Step 1 – Select Clinic & Specialty | `booking_step_completed` | Custom Event | Event equals `booking_step_completed` and `step_number = 1` | `booking_step_completed` | `step_number = 1` | Measure users who successfully select a clinic location and specialty. |
+| Step 2 – Enter Patient Details | `booking_step_completed` | Custom Event | Event equals `booking_step_completed` and `step_number = 2` | `booking_step_completed` | `step_number = 2` | Measure users who successfully complete the patient information step. |
+| Step 3 – Confirm Booking | `booking_completed` | Custom Event | Event equals `booking_completed` | `booking_completed` | Final conversion step | Measure successfully confirmed consultation bookings. |
+
