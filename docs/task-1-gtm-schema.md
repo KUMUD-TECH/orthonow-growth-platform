@@ -40,3 +40,84 @@ The booking form consists of three sequential steps. Since it is a multi-step fo
 | Step 2 – Enter Patient Details | `booking_step_completed` | Custom Event | Event equals `booking_step_completed` and `step_number = 2` | `booking_step_completed` | `step_number = 2` | Measure users who successfully complete the patient information step. |
 | Step 3 – Confirm Booking | `booking_completed` | Custom Event | Event equals `booking_completed` | `booking_completed` | Final conversion step | Measure successfully confirmed consultation bookings. |
 
+## dataLayer Push – Step 1
+
+```json
+{
+    "event": "booking_step_completed",
+    "step_number": 1,
+    "step_name": "location_specialty_selected",
+    "clinic_location": "Indiranagar",
+    "specialty": "Orthopaedics"
+}
+```
+
+## dataLayer Push - Step 2
+
+```json
+{
+
+    "event": "booking_step_completed",
+    "step_number": 2,
+    "step_name": "patient_details_entered",
+    "clinic_location": "Indiranagar",
+    "specialty": "Orthopaedics",
+    "preferred_date": "2026-07-05"
+}
+```
+
+## dataLayer Push - Step 3
+
+```json
+{
+    "event": "booking_completed",
+    "step_number": 3,
+    "step_name": "booking_confirmed",
+    "clinic_location": "Indiranagar",
+    "specialty": "Orthopaedics",
+    "booking_id": "BK102948" 
+}
+
+```
+
+## Tracking Funnel Drop-Off in GA4
+
+To measure abandonment between booking steps, a GA4 Funnel Exploration will be configured using the following event sequence:
+
+| Funnel Stage      | GA4 Event                                    |
+| ----------------- | -------------------------------------------- |
+| Booking Started   | `booking_started`                            |
+| Step 1 Completed  | `booking_step_completed` (`step_number = 1`) |
+| Step 2 Completed  | `booking_step_completed` (`step_number = 2`) |
+| Booking Completed | `booking_completed` |
+
+
+
+This configuration enables GA4 to visualize:
+
+The number of users progressing through each booking step.
+The percentage of users dropping off at each stage.
+The step with the highest abandonment rate.
+Completion rates segmented by clinic location, specialty, traffic source, campaign, and device type.
+
+These insights help optimize the booking flow and improve overall conversion rates.
+
+## Google Ads Conversion
+
+### Selected Conversion Event
+
+Event: `consultation_form_submitted`
+
+### Reason for Selection
+
+The `consultation_form_submitted` event represents a qualified lead because the user has intentionally submitted the consultation request form. It occurs before CRM processing while still indicating strong purchase intent, making it the most reliable optimization signal for Google Ads Smart Bidding.
+
+Other events such as `call_now_clicked` or `whatsapp_chat_started` indicate user interest but do not confirm that a consultation request has been submitted. Therefore, they are better suited for audience creation and engagement reporting rather than primary campaign optimization.
+
+## Frontend Implementation Notes
+
+GTM cannot automatically detect progress within a multi-step booking form.
+The frontend developer must implement `window.dataLayer.push()` after each successful booking step.
+GTM should listen for these custom events using Custom Event Triggers and forward them to GA4.
+All events should be validated using GTM Preview Mode and GA4 DebugView before deployment.
+Personally identifiable information (PII), such as patient names and phone numbers, should not be sent to GA4 or Google Ads. Such information should only be transmitted securely to the backend/CRM.
