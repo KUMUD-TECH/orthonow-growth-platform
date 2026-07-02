@@ -1,1020 +1,877 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Book an Orthopaedic Consultation | OrthoNow</title>
 
     <meta
-        name="description"
-        content="Get an expert orthopaedic opinion for knee and back pain. Book your consultation at one of OrthoNow's 9 clinics across Bengaluru."
-    >
+      name="description"
+      content="Get an expert orthopaedic opinion for knee and back pain. Book your consultation at one of OrthoNow's 9 clinics across Bengaluru."
+    />
 
-    <!-- Embedded CSS (Phase 2) -->
     <style>
-                /* =========================
-                        CSS VARIABLES
-                ========================= */
 
-        :root {
+      :root {
+        --primary-color: #2563eb;
+        --primary-dark: #1d4ed8;
 
-            --primary-color: #2563EB;
-            --primary-dark: #1D4ED8;
+        --success-color: #10b981;
 
-            --success-color: #10B981;
+        --background-color: #f8fafc;
 
-            --background-color: #F8FAFC;
+        --card-color: #ffffff;
 
-            --card-color: #FFFFFF;
+        --text-color: #111827;
 
-            --text-color: #111827;
+        --text-light: #6b7280;
 
-            --text-light: #6B7280;
+        --border-color: #e5e7eb;
 
-            --border-color: #E5E7EB;
+        --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 
-            --shadow:
-                0 12px 30px rgba(0, 0, 0, 0.08);
+        --border-radius: 18px;
 
-            --border-radius: 18px;
+        --transition: 0.25s ease;
 
-            --transition: 0.25s ease;
+        --container-width: 1200px;
+      }
 
-            --container-width: 1200px;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        /* =========================
-                    RESET
-        ========================= */
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        background: var(--background-color);
 
-        html {
+        color: var(--text-color);
 
-            scroll-behavior: smooth;
+        line-height: 1.6;
+      }
 
-        }
+      img {
+        max-width: 100%;
 
-        body {
+        display: block;
+      }
 
-            font-family:
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
+      a {
+        text-decoration: none;
 
-            background: var(--background-color);
+        color: inherit;
+      }
 
-            color: var(--text-color);
+      button {
+        cursor: pointer;
 
-            line-height: 1.6;
+        border: none;
 
-        }
+        font: inherit;
+      }
 
-        img {
+      input,
+      select {
+        font: inherit;
+      }
 
-            max-width: 100%;
+      .container {
+        width: min(90%, var(--container-width));
 
-            display: block;
+        margin-inline: auto;
+      }
 
-        }
+      section {
+        padding: 80px 0;
+      }
 
-        a {
+      h1 {
+        font-size: 3rem;
 
-            text-decoration: none;
+        line-height: 1.2;
 
-            color: inherit;
+        margin-bottom: 24px;
+      }
 
-        }
+      h2 {
+        font-size: 2rem;
 
-        button {
+        margin-bottom: 18px;
+      }
 
-            cursor: pointer;
+      h3 {
+        margin-bottom: 12px;
+      }
 
-            border: none;
+      p {
+        color: var(--text-light);
+      }
 
-            font: inherit;
+      /*HEADER*/
 
-        }
+      .header {
+        background: var(--card-color);
 
-        input,
-        select {
+        border-bottom: 1px solid var(--border-color);
 
-            font: inherit;
+        padding: 18px 0;
 
-        }
+        position: sticky;
 
-        /* =========================
-                CONTAINER
-        ========================= */
+        top: 0;
 
-        .container {
+        z-index: 100;
+      }
 
-            width: min(90%, var(--container-width));
+      .logo h2 {
+        color: var(--primary-color);
 
-            margin-inline: auto;
+        font-size: 1.8rem;
 
-        }
+        font-weight: 800;
+      }
 
-        section {
+      .logo p {
+        color: var(--text-light);
 
-            padding: 80px 0;
+        font-size: 0.85rem;
 
-        }
+        letter-spacing: 1px;
 
-        h1 {
+        text-transform: uppercase;
+      }
 
-            font-size: 3rem;
+      /*HERO*/
 
-            line-height: 1.2;
+      .hero {
+        background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+        text-align: center;
+      }
 
-            margin-bottom: 24px;
+      .hero .container {
+        display: flex;
 
-        }
+        flex-direction: column;
 
-        h2 {
+        align-items: center;
+      }
 
-            font-size: 2rem;
+      .hero-content {
+        max-width: 850px;
+      }
 
-            margin-bottom: 18px;
+      .hero-content h1 {
+        font-size: 3.5rem;
 
-        }
+        font-weight: 800;
 
-        h3 {
+        line-height: 1.15;
 
-            margin-bottom: 12px;
+        margin-bottom: 24px;
+      }
 
-        }
+      .hero-subtitle {
+        max-width: 700px;
 
-        p {
+        margin: 0 auto 40px;
 
-            color: var(--text-light);
+        font-size: 1.15rem;
+      }
 
-        }
+      .hero-trust {
+        display: flex;
 
-        /* =========================
-                HEADER
-        ========================= */
+        justify-content: center;
 
-        .header {
+        gap: 50px;
 
-            background: var(--card-color);
+        margin-bottom: 60px;
 
-            border-bottom: 1px solid var(--border-color);
+        flex-wrap: wrap;
+      }
+      .trust-item {
+        display: flex;
 
-            padding: 18px 0;
+        flex-direction: column;
+      }
+      .trust-item strong {
+        color: var(--primary-color);
 
-            position: sticky;
+        font-size: 1.4rem;
+      }
+      .trust-item span {
+        font-size: 0.9rem;
+      }
+      .hero-image {
+        margin-bottom: 60px;
+      }
+      .consultation-card {
+        width: 100%;
 
-            top: 0;
+        max-width: 550px;
 
-            z-index: 100;
+        background: var(--white);
 
-        }
+        padding: 40px;
 
-        .logo h2 {
+        border-radius: 20px;
 
-            color: var(--primary-color);
-
-            font-size: 1.8rem;
-
-            font-weight: 800;
-
-        }
-
-        .logo p {
-
-            color: var(--text-light);
-
-            font-size: .85rem;
-
-            letter-spacing: 1px;
-
-            text-transform: uppercase;
-
-        }
-
-        /* =========================
-                    HERO
-        ========================= */
-
-        .hero {
-
-            background: linear-gradient(
-                180deg,
-                #EFF6FF 0%,
-                #FFFFFF 100%
-            );
-            text-align: center;
-
-        }
-
-        .hero .container{
-
-            display:flex;
-
-            flex-direction:column;
-
-            align-items:center;
-
-        }
-
-        .hero-content{
-
-            max-width:850px;
-
-        }
-
-        .hero-content h1{
-
-        font-size:3.5rem;
-
-        font-weight:800;
-
-        line-height:1.15;
-
-        margin-bottom:24px;
-
-        }
-
-        .hero-subtitle{
-
-            max-width:700px;
-
-            margin:0 auto 40px;
-
-            font-size:1.15rem;
-
-        }
-
-        .hero-trust{
-
-            display:flex;
-
-            justify-content:center;
-
-            gap:50px;
-
-            margin-bottom:60px;
-
-            flex-wrap:wrap;
-
-        }
-        .trust-item{
-
-            display:flex;
-
-            flex-direction:column;
-
-        }
-        .trust-item strong{
-
-        color:var(--primary-color);
-
-        font-size:1.4rem;
-
-        }
-        .trust-item span{
-
-        font-size:.9rem;
-
-        }
-        .hero-image{
-
-        margin-bottom:60px;
-
-        }
-        .consultation-card{
-
-        width:100%;
-
-        max-width:550px;
-
-        background:var(--white);
-
-        padding:40px;
-
-        border-radius:20px;
-
-        box-shadow:var(--shadow);
+        box-shadow: var(--shadow);
 
         text-align: left;
+      }
 
+      .consultation-card h2 {
+        margin-bottom: 12px;
+      }
+
+      .consultation-card p {
+        margin-bottom: 30px;
+      }
+
+      .consultation-card label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--text-color);
+      }
+
+      .consultation-card input,
+      .consultation-card select {
+        width: 100%;
+        padding: 16px 18px;
+        margin-top: 8px;
+        margin-bottom: 20px;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        outline: none;
+        transition: var(--transition);
+      }
+      .consultation-card input:focus,
+      .consultation-card select:focus {
+        border-color: var(--primary-color);
+      }
+
+      .consultation-card button {
+        width: 100%;
+
+        padding: 18px;
+
+        background: var(--primary-color);
+
+        color: white;
+
+        font-weight: 700;
+
+        font-size: 1rem;
+
+        border-radius: 12px;
+
+        transition: var(--transition);
+      }
+      .consultation-card button:hover {
+        background: var(--primary-dark);
+
+        transform: translateY(-2px);
+      }
+      label {
+        display: block;
+
+        font-weight: 600;
+
+        margin-bottom: 6px;
+      }
+
+      #thankYouMessage {
+        text-align: center;
+
+        padding: 30px;
+      }
+
+      #thankYouMessage h3 {
+        color: var(--success-color);
+
+        margin-bottom: 16px;
+      }
+
+      .availability-badge {
+        display: inline-block;
+
+        margin-bottom: 20px;
+
+        padding: 8px 16px;
+
+        background: #dcfce7;
+
+        color: #166534;
+
+        border-radius: 999px;
+
+        font-size: 0.9rem;
+
+        font-weight: 600;
+      }
+
+      .benefits {
+        background: #ffffff;
+      }
+
+      .benefits h2 {
+        text-align: center;
+
+        margin-bottom: 50px;
+      }
+
+      .benefit-list {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+        gap: 30px;
+      }
+
+      .benefit-list article {
+        background: var(--card-color);
+
+        padding: 30px;
+
+        border: 1px solid var(--border-color);
+
+        border-radius: var(--border-radius);
+
+        box-shadow: var(--shadow);
+
+        transition: var(--transition);
+      }
+
+      .benefit-list article:hover {
+        transform: translateY(-5px);
+
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .benefit-list h3 {
+        color: var(--primary-color);
+
+        margin-bottom: 15px;
+
+        font-size: 1.2rem;
+      }
+
+      .benefit-list p {
+        line-height: 1.7;
+      }
+
+      .testimonial {
+        background: #f8fbff;
+      }
+
+      .testimonial .container {
+        max-width: 850px;
+
+        text-align: center;
+      }
+
+      .testimonial h2 {
+        margin-bottom: 40px;
+      }
+
+      .testimonial blockquote {
+        font-size: 1.3rem;
+
+        line-height: 1.8;
+
+        color: var(--text-color);
+
+        font-style: italic;
+
+        margin-bottom: 30px;
+      }
+
+      .testimonial p {
+        font-size: 1.3rem;
+
+        color: #f59e0b;
+
+        margin-bottom: 15px;
+      }
+
+      .testimonial cite {
+        display: block;
+
+        font-style: normal;
+
+        font-weight: 600;
+
+        color: var(--text-light);
+      }
+
+      .faq {
+        background: #ffffff;
+      }
+
+      .faq .container {
+        max-width: 900px;
+      }
+
+      .faq h2 {
+        text-align: center;
+
+        margin-bottom: 50px;
+      }
+
+      .faq article {
+        background: var(--card-color);
+
+        border: 1px solid var(--border-color);
+
+        border-radius: var(--border-radius);
+
+        padding: 25px 30px;
+
+        margin-bottom: 20px;
+
+        box-shadow: var(--shadow);
+      }
+
+      .faq article:last-child {
+        margin-bottom: 0;
+      }
+
+      .faq h3 {
+        color: var(--primary-color);
+
+        margin-bottom: 12px;
+
+        font-size: 1.1rem;
+      }
+
+      .faq p {
+        line-height: 1.7;
+      }
+
+      .footer {
+        padding: 20px 0 20px;
+
+        background: var(--card-color);
+
+        border-top: 1px solid var(--border-color);
+
+        text-align: center;
+      }
+
+      .footer h2 {
+        color: var(--primary-color);
+
+        font-size: 1.8rem;
+
+        font-weight: 800;
+
+        margin-bottom: 8px;
+      }
+
+      .footer-tagline {
+        text-transform: uppercase;
+
+        letter-spacing: 1px;
+
+        font-size: 0.9rem;
+
+        color: var(--text-light);
+
+        margin-bottom: 20px;
+      }
+
+      .footer p {
+        margin-bottom: 12px;
+      }
+
+      .footer a {
+        color: var(--primary-color);
+
+        font-weight: 600;
+
+        transition: var(--transition);
+      }
+
+      .footer a:hover {
+        color: var(--primary-dark);
+      }
+
+      .footer-links {
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        gap: 12px;
+
+        margin: 24px 0;
+
+        flex-wrap: wrap;
+      }
+
+      .copyright {
+        padding-top: 20px;
+
+        border-top: 1px solid var(--border-color);
+
+        font-size: 0.9rem;
+
+        color: var(--text-light);
+      }
+
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2.4rem;
+        }
+        .hero .container {
+          grid-template-columns: 1fr;
+        }
+        .hero-content h1 {
+          font-size: 2.5rem;
         }
 
-        .consultation-card h2{
-            margin-bottom:12px;
+        .hero-trust {
+          gap: 25px;
         }
 
-        .consultation-card p{
-            margin-bottom:30px;
+        .consultation-card {
+          padding: 30px 24px;
         }
-
-        .consultation-card label{
-            display:block;
-            margin-bottom:8px;
-            font-weight:600;
-            color: var(--text-color);
-        }
-
-        .consultation-card input,
-        .consultation-card select{
-
-            width:100%;
-            padding:16px 18px;
-            margin-top: 8px;
-            margin-bottom:20px;
-            border: 1px solid var(--border-color);
-            border-radius:12px;
-            outline:none;
-            transition:var(--transition);
-
-        }
-        .consultation-card input:focus,
-        .consultation-card select:focus{
-
-            border-color:var(--primary-color);
-
-        }
-
-        .consultation-card button{
-
-            width:100%;
-
-            padding:18px;
-
-            background:var(--primary-color);
-
-            color:white;
-
-            font-weight:700;
-
-            font-size:1rem;
-
-            border-radius:12px;
-
-            transition:var(--transition);
-
-        }
-        .consultation-card button:hover{
-
-            background:var(--primary-dark);
-
-            transform:translateY(-2px);
-
-        }
-        label{
-
-            display:block;
-
-            font-weight:600;
-
-            margin-bottom:6px;
-
-        }
-
-        #thankYouMessage{
-
-            text-align:center;
-
-            padding:30px;
-
-        }
-
-        #thankYouMessage h3{
-
-            color:var(--success-color);
-
-            margin-bottom:16px;
-
-        }
-
-        .availability-badge{
-
-        display:inline-block;
-
-        margin-bottom:20px;
-
-        padding:8px 16px;
-
-        background:#DCFCE7;
-
-        color:#166534;
-
-        border-radius:999px;
-
-        font-size:.9rem;
-
-        font-weight:600;
-
-        }
-
-        /* =========================
-                FOOTER
-        ========================= */
-
-        .footer{
-
-            margin-top:80px;
-
-            padding:60px 0 30px;
-
-            background:var(--card-color);
-
-            border-top:1px solid var(--border-color);
-
-            text-align:center;
-
-        }
-
-        .footer h2{
-
-            color:var(--primary-color);
-
-            font-size:1.8rem;
-
-            font-weight:800;
-
-            margin-bottom:8px;
-
-        }
-
-        .footer-tagline{
-
-            text-transform:uppercase;
-
-            letter-spacing:1px;
-
-            font-size:.9rem;
-
-            color:var(--text-light);
-
-            margin-bottom:20px;
-
-        }
-
-        .footer p{
-
-            margin-bottom:12px;
-
-        }
-
-        .footer a{
-
-            color:var(--primary-color);
-
-            font-weight:600;
-
-            transition:var(--transition);
-
-        }
-
-        .footer a:hover{
-
-            color:var(--primary-dark);
-
-        }
-
-        .footer-links{
-
-            display:flex;
-
-            justify-content:center;
-
-            align-items:center;
-
-            gap:12px;
-
-            margin:24px 0;
-
-            flex-wrap:wrap;
-
-        }
-
-        .copyright{
-
-            padding-top:20px;
-
-            border-top:1px solid var(--border-color);
-
-            font-size:.9rem;
-
-            color:var(--text-light);
-
-        }
-
-
-
-        @media(max-width:768px){
-
-        .hero-content h1{
-
-            font-size:2.4rem;
-
-        }
-        .hero .container{
-
-            grid-template-columns:1fr;
-
-        }
-        .hero-content h1{
-
-            font-size:2.5rem;
-
-        }
-
-        .hero-trust{
-
-            gap:25px;
-
-        }
-
-        .consultation-card{
-        
-            padding:30px 24px;
-
-        }
-
-        }
-
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
-    <!-- =========================
-                HEADER
-    ========================== -->
+  <body>
+    <!--HEADER-->
 
     <header class="header">
-        <div class="container">
-            <div class="logo">
-                <h2>OrthoNow</h2>
-                <p>Orthopaedic Specialists</p>
-            </div>
+      <div class="container">
+        <div class="logo">
+          <h2>OrthoNow</h2>
+          <p>Orthopaedic Specialists</p>
         </div>
-
+      </div>
     </header>
 
-
-
-    <!-- =========================
-            MAIN CONTENT
-    ========================== -->
+    <!--MAIN CONTENT-->
 
     <main>
+      <!--HERO SECTION-->
 
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1>Get an Expert Orthopaedic Opinion for Knee & Back Pain</h1>
 
+            <p class="hero-subtitle">
+              Book your consultation with experienced orthopaedic specialists
+              across 9 clinics in Bengaluru. Same-week appointments available.
+            </p>
 
-        <!-- =====================
-             HERO SECTION
-        ====================== -->
+            <div class="hero-trust">
+              <div>
+                <strong>★ 4.8/5</strong>
 
-        <section class="hero">
-            <div class="container">
+                <span>Patient Rating</span>
+              </div>
 
-                <div class="hero-content">
+              <div>
+                <strong>3200+</strong>
 
-                    <h1>
-                        Get an Expert Orthopaedic Opinion
-                        for Knee & Back Pain
-                    </h1>
+                <span>Patients</span>
+              </div>
 
-                    <p class="hero-subtitle">
-                        Book your consultation with experienced orthopaedic
-                        specialists across 9 clinics in Bengaluru.
-                        Same-week appointments available.
-                    </p>
+              <div>
+                <strong>9</strong>
 
-                    <div class="hero-trust">
-
-                        <div>
-
-                            <strong>★ 4.8/5</strong>
-
-                            <span>Patient Rating</span>
-
-                        </div>
-
-                        <div>
-
-                            <strong>3200+</strong>
-
-                            <span>Patients</span>
-
-                        </div>
-
-                        <div>
-
-                            <strong>9</strong>
-
-                            <span>Clinics</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                    <div class="consultation-card">
-
-                        <h2>Book Your Consultation</h2>
-
-                        <p>
-                            Find the nearest clinic and request
-                            a consultation in less than a minute.
-                        </p>
-
-
-
-                        <form id="consultationForm">
-
-                            <!-- Location -->
-
-                            <label for="location">
-                                Preferred Clinic
-                            </label>
-
-                            <select id="location" required>
-
-                                <option value="">
-                                    Select Clinic
-                                </option>
-
-                                <option>
-                                    Indiranagar
-                                </option>
-
-                                <option>
-                                    Koramangala
-                                </option>
-
-                                <option>
-                                    Whitefield
-                                </option>
-
-                                <option>
-                                    Jayanagar
-                                </option>
-
-                            </select>
-
-
-
-                            <!-- Specialty -->
-
-                            <label for="specialty">
-                                Specialty
-                            </label>
-
-                            <select id="specialty" required>
-
-                                <option value="">
-                                    Select Specialty
-                                </option>
-
-                                <option>
-                                    Knee Pain
-                                </option>
-
-                                <option>
-                                    Back Pain
-                                </option>
-
-                                <option>
-                                    Sports Injury
-                                </option>
-
-                                <option>
-                                    Joint Replacement
-                                </option>
-
-                            </select>
-
-
-
-                            <!-- Name -->
-
-                            <label for="name">
-                                Full Name
-                            </label>
-
-                            <input
-                                type="text"
-                                id="name"
-                                placeholder="Enter your name"
-                                required
-                            >
-
-
-
-                            <!-- Phone -->
-
-                            <label for="phone">
-                                Phone Number
-                            </label>
-
-                            <input
-                                type="tel"
-                                id="phone"
-                                placeholder="Enter your phone number"
-                                required
-                            >
-
-
-
-                            <!-- Submit -->
-
-                            <button type="submit">
-
-                                Book My Consultation
-
-                            </button>
-
-                        </form>
-
-
-
-                        <!-- Thank You State -->
-
-                        <div id ="thankYouMessage" hidden>
-                            <h3>
-                                ✅ Thank You!
-                            </h3>
-
-                            <p>
-
-                                We've received your consultation request.
-
-                                Our team will contact you shortly.
-
-                            </p>
-
-                        </div>
-                    </div>
+                <span>Clinics</span>
+              </div>
             </div>
+          </div>
 
-        </section>
+          <div class="consultation-card">
+            <h2>Book Your Consultation</h2>
 
+            <p>
+              Find the nearest clinic and request a consultation in less than a
+              minute.
+            </p>
 
-        <!-- =====================
-             BENEFITS
-        ====================== -->
+            <form id="consultationForm">
 
-        <section class="benefits">
-            <div class="container">
+              <!-- Location -->
 
-                <h2>
+              <label for="location"> Preferred Clinic </label>
 
-                    Why Patients Choose OrthoNow
+              <select id="location" required>
+                <option value="">Select Clinic</option>
 
-                </h2>
+                <option>Indiranagar</option>
 
-                <div class="benefit-list">
+                <option>Koramangala</option>
 
-                    <article>
+                <option>Whitefield</option>
 
-                        <h3>
+                <option>Jayanagar</option>
+              </select>
 
-                            Experienced Specialists
+              <!-- Specialty -->
 
-                        </h3>
+              <label for="specialty"> Specialty </label>
 
-                        <p>
+              <select id="specialty" required>
+                <option value="">Select Specialty</option>
 
-                            Consult orthopaedic experts with years
-                            of clinical experience.
+                <option>Knee Pain</option>
 
-                        </p>
+                <option>Back Pain</option>
 
-                    </article>
+                <option>Sports Injury</option>
 
+                <option>Joint Replacement</option>
+              </select>
+              <!-- Name -->
 
+              <label for="name"> Full Name </label>
 
-                    <article>
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+              />
+              <!-- Phone -->
 
-                        <h3>
+              <label for="phone"> Phone Number </label>
 
-                            Same-Week Appointments
+              <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+                autocomplete="tel"
+                maxlength="10"
+                pattern="[0-9]{10}"
+                inputmode="numeric"
+                required
+              />
+              <button type="submit">Book My Consultation</button>
+            </form>
 
-                        </h3>
+            <!-- Thank You State -->
 
-                        <p>
+            <div id="thankYouMessage" hidden>
+              <h3>✅ Thank You!</h3>
 
-                            Quick appointment availability
-                            across multiple clinics.
-
-                        </p>
-
-                    </article>
-
-
-
-                    <article>
-
-                        <h3>
-
-                            Personalized Treatment
-
-                        </h3>
-
-                        <p>
-
-                            Treatment plans tailored to your
-                            condition and recovery goals.
-
-                        </p>
-
-                    </article>
-
-                </div>
+              <p>
+                We've received your consultation request. Our team will contact
+                you shortly.
+              </p>
             </div>
+          </div>
+        </div>
+      </section>
 
-        </section>
+      <!--BENEFITS-->
 
+      <section class="benefits">
+        <div class="container">
+          <h2>Why Patients Choose OrthoNow</h2>
 
+          <div class="benefit-list">
+            <article>
+              <h3>Experienced Specialists</h3>
 
-        <!-- =====================
-             TESTIMONIAL
-        ====================== -->
+              <p>
+                Consult orthopaedic experts with years of clinical experience.
+              </p>
+            </article>
 
-        <section class="testimonial">
-            <div class="container">
+            <article>
+              <h3>Same-Week Appointments</h3>
 
-                <h2>
+              <p>Quick appointment availability across multiple clinics.</p>
+            </article>
 
-                    What Our Patients Say
+            <article>
+              <h3>Personalized Treatment</h3>
 
-                </h2>
+              <p>
+                Treatment plans tailored to your condition and recovery goals.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-                <blockquote>
+      <!--TESTIMONIAL-->
 
-                    "The consultation process was smooth,
-                    and the doctor explained my knee issue
-                    clearly. I received an appointment the
-                    very next day."
+      <section class="testimonial">
+        <div class="container">
+          <h2>What Our Patients Say</h2>
 
-                </blockquote>
+          <blockquote>
+            "The consultation process was smooth, and the doctor explained my
+            knee issue clearly. I received an appointment the very next day."
+          </blockquote>
 
-                <p>
+          <p>★★★★★</p>
 
-                    ★★★★★
+          <cite> — Priya S., Bengaluru</cite>
+        </div>
+      </section>
 
-                </p>
+      <!--FAQ-->
 
-                <cite>
+      <section class="faq">
+        <div class="container">
+          <h2>Frequently Asked Questions</h2>
 
-                    — Priya S., Bengaluru
+          <article>
+            <h3>Do I need a referral?</h3>
 
-                </cite>
-            </div>
+            <p>
+              No. You can directly book an appointment with our orthopaedic
+              specialists.
+            </p>
+          </article>
 
-        </section>
+          <article>
+            <h3>How soon can I get an appointment?</h3>
 
+            <p>
+              Most clinics offer same-week appointments based on availability.
+            </p>
+          </article>
 
+          <article>
+            <h3>Which conditions are treated?</h3>
 
-        <!-- =====================
-             FAQ
-        ====================== -->
-
-        <section class="faq">
-            <div class="container">
-
-                <h2>
-
-                    Frequently Asked Questions
-
-                </h2>
-
-                <article>
-
-                    <h3>
-
-                        Do I need a referral?
-
-                    </h3>
-
-                    <p>
-
-                        No. You can directly book an appointment
-                        with our orthopaedic specialists.
-
-                    </p>
-
-                </article>
-
-
-
-                <article>
-
-                    <h3>
-
-                        How soon can I get an appointment?
-
-                    </h3>
-
-                    <p>
-
-                        Most clinics offer same-week
-                        appointments based on availability.
-
-                    </p>
-
-                </article>
-
-
-
-                <article>
-
-                    <h3>
-
-                        Which conditions are treated?
-
-                    </h3>
-
-                    <p>
-
-                        Knee pain, back pain,
-                        sports injuries,
-                        fractures,
-                        arthritis,
-                        and joint replacement consultations.
-
-                    </p>
-
-                </article>
-            </div>
-
-
-        </section>
-
+            <p>
+              Knee pain, back pain, sports injuries, fractures, arthritis, and
+              joint replacement consultations.
+            </p>
+          </article>
+        </div>
+      </section>
     </main>
 
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!--FOOTER-->
 
     <footer class="footer">
+      <div class="container">
+        <h2>OrthoNow</h2>
 
-        <div class="container">
+        <p class="footer-tagline">Orthopaedic Specialists</p>
 
-            <h2>OrthoNow</h2>
+        <p>Serving patients across 9 clinics in Bengaluru.</p>
 
-            <p class="footer-tagline">
-                Orthopaedic Specialists
-            </p>
+        <p>
+          Contact:
+          <a href="tel:+919876543210"> +91 98765 43210 </a>
+        </p>
 
-            <p>
-                Serving patients across 9 clinics in Bengaluru.
-            </p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
 
-            <p>
-                Contact:
-                <a href="tel:+919876543210">
-                    +91 98765 43210
-                </a>
-            </p>
+          <span>|</span>
 
-            <div class="footer-links">
-
-                <a href="#">Privacy Policy</a>
-
-                <span>|</span>
-
-                <a href="#">Terms & Conditions</a>
-
-            </div>
-
-            <p class="copyright">
-
-                © 2026 OrthoNow. All Rights Reserved.
-
-            </p>
-
+          <a href="#">Terms & Conditions</a>
         </div>
 
+        <p class="copyright">© 2026 OrthoNow. All Rights Reserved.</p>
+      </div>
     </footer>
 
-
-
-    <!-- =========================
-         JAVASCRIPT
-         (Phase 3)
-    ========================== -->
-
     <script>
+      /* ========= ORTHONOW LANDING PAGE Form Submission & GTM Tracking ================ */
 
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("consultationForm");
+        const thankYouMessage = document.getElementById("thankYouMessage");
+
+        // Create dataLayer if GTM is not loaded
+        window.dataLayer = window.dataLayer || [];
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get Form Values
+          const location = document.getElementById("location").value;
+          const specialty = document.getElementById("specialty").value;
+          const name = document.getElementById("name").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+
+          // Basic Validation
+          if (!name || !phone) {
+            alert("Please enter your name and phone number.");
+
+            return;
+          }
+
+          if (!/^[0-9]{10}$/.test(phone)) {
+            alert("Please enter a valid 10-digit phone number.");
+
+            return;
+          }
+
+          // =====================
+          // GTM Data Layer Push
+          // =====================
+
+          const consultationEvent = {
+            event: "consultation_form_submitted",
+
+            clinic_location: location,
+
+            specialty: specialty,
+
+            form_name: "consultation_form",
+
+            lead_type: "consultation_request",
+
+            phone_provided: true,
+          };
+
+          window.dataLayer.push(consultationEvent);
+
+          // Console log for interviewer verification
+
+          console.log("GTM Event Fired:");
+          console.log(window.dataLayer);
+
+          // =====================
+          // Show Thank You State
+          // =====================
+
+          form.style.display = "none";
+
+          thankYouMessage.hidden = false;
+
+          //Scroll smoothly to Thank You
+          thankYouMessage.scrollIntoView({
+            behavior: "smooth",
+
+            block: "center",
+          });
+        });
+      });
     </script>
-
-</body>
+  </body>
 </html>
