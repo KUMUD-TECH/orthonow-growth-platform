@@ -47,7 +47,7 @@
         }
 
         /* =========================
-        RESET
+                    RESET
         ========================= */
 
         * {
@@ -213,44 +213,45 @@
                 #EFF6FF 0%,
                 #FFFFFF 100%
             );
+            text-align: center;
 
         }
 
         .hero .container{
 
-            display:grid;
+            display:flex;
 
-            grid-template-columns:repeat(2,1fr);
-
-            gap:60px;
+            flex-direction:column;
 
             align-items:center;
 
         }
 
+        .hero-content{
+
+            max-width:850px;
+
+        }
+
         .hero-content h1{
 
-            font-size:3.4rem;
+        font-size:3.5rem;
 
-            font-weight:800;
+        font-weight:800;
 
-            line-height:1.15;
+        line-height:1.15;
 
-            margin-bottom:24px;
-
-            color:var(--text-color);
+        margin-bottom:24px;
 
         }
 
         .hero-subtitle{
 
+            max-width:700px;
+
+            margin:0 auto 40px;
+
             font-size:1.15rem;
-
-            color:var(--text-light);
-
-            margin-bottom:32px;
-
-            max-width:550px;
 
         }
 
@@ -258,65 +259,289 @@
 
             display:flex;
 
-            gap:40px;
+            justify-content:center;
 
-            margin-top:40px;
+            gap:50px;
+
+            margin-bottom:60px;
+
+            flex-wrap:wrap;
 
         }
-
-        .hero-trust div{
+        .trust-item{
 
             display:flex;
 
             flex-direction:column;
 
         }
+        .trust-item strong{
 
-        .hero-trust strong{
+        color:var(--primary-color);
 
-            font-size:1.3rem;
+        font-size:1.4rem;
 
-            color:var(--primary-color);
+        }
+        .trust-item span{
+
+        font-size:.9rem;
+
+        }
+        .hero-image{
+
+        margin-bottom:60px;
+
+        }
+        .consultation-card{
+
+        width:100%;
+
+        max-width:550px;
+
+        background:var(--white);
+
+        padding:40px;
+
+        border-radius:20px;
+
+        box-shadow:var(--shadow);
+
+        text-align: left;
 
         }
 
-        .hero-trust span{
+        .consultation-card h2{
+            margin-bottom:12px;
+        }
 
-            color:var(--text-light);
+        .consultation-card p{
+            margin-bottom:30px;
+        }
+
+        .consultation-card label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:600;
+            color: var(--text-color);
+        }
+
+        .consultation-card input,
+        .consultation-card select{
+
+            width:100%;
+            padding:16px 18px;
+            margin-top: 8px;
+            margin-bottom:20px;
+            border: 1px solid var(--border-color);
+            border-radius:12px;
+            outline:none;
+            transition:var(--transition);
+
+        }
+        .consultation-card input:focus,
+        .consultation-card select:focus{
+
+            border-color:var(--primary-color);
+
+        }
+
+        .consultation-card button{
+
+            width:100%;
+
+            padding:18px;
+
+            background:var(--primary-color);
+
+            color:white;
+
+            font-weight:700;
+
+            font-size:1rem;
+
+            border-radius:12px;
+
+            transition:var(--transition);
+
+        }
+        .consultation-card button:hover{
+
+            background:var(--primary-dark);
+
+            transform:translateY(-2px);
+
+        }
+        label{
+
+            display:block;
+
+            font-weight:600;
+
+            margin-bottom:6px;
+
+        }
+
+        #thankYouMessage{
+
+            text-align:center;
+
+            padding:30px;
+
+        }
+
+        #thankYouMessage h3{
+
+            color:var(--success-color);
+
+            margin-bottom:16px;
+
+        }
+
+        .availability-badge{
+
+        display:inline-block;
+
+        margin-bottom:20px;
+
+        padding:8px 16px;
+
+        background:#DCFCE7;
+
+        color:#166534;
+
+        border-radius:999px;
+
+        font-size:.9rem;
+
+        font-weight:600;
+
+        }
+
+        /* =========================
+                FOOTER
+        ========================= */
+
+        .footer{
+
+            margin-top:80px;
+
+            padding:60px 0 30px;
+
+            background:var(--card-color);
+
+            border-top:1px solid var(--border-color);
+
+            text-align:center;
+
+        }
+
+        .footer h2{
+
+            color:var(--primary-color);
+
+            font-size:1.8rem;
+
+            font-weight:800;
+
+            margin-bottom:8px;
+
+        }
+
+        .footer-tagline{
+
+            text-transform:uppercase;
+
+            letter-spacing:1px;
 
             font-size:.9rem;
 
-        }
+            color:var(--text-light);
 
-        .hero-image{
-
-            display:flex;
-
-            justify-content:center;
-
-            align-items:center;
+            margin-bottom:20px;
 
         }
 
-        .illustration-placeholder{
+        .footer p{
 
-            width:420px;
+            margin-bottom:12px;
 
-            height:420px;
+        }
 
-            border-radius:50%;
-
-            background:#DBEAFE;
-
-            display:flex;
-
-            justify-content:center;
-
-            align-items:center;
+        .footer a{
 
             color:var(--primary-color);
 
-            font-weight:bold;
+            font-weight:600;
+
+            transition:var(--transition);
+
+        }
+
+        .footer a:hover{
+
+            color:var(--primary-dark);
+
+        }
+
+        .footer-links{
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            gap:12px;
+
+            margin:24px 0;
+
+            flex-wrap:wrap;
+
+        }
+
+        .copyright{
+
+            padding-top:20px;
+
+            border-top:1px solid var(--border-color);
+
+            font-size:.9rem;
+
+            color:var(--text-light);
+
+        }
+
+
+
+        @media(max-width:768px){
+
+        .hero-content h1{
+
+            font-size:2.4rem;
+
+        }
+        .hero .container{
+
+            grid-template-columns:1fr;
+
+        }
+        .hero-content h1{
+
+            font-size:2.5rem;
+
+        }
+
+        .hero-trust{
+
+            gap:25px;
+
+        }
+
+        .consultation-card{
+        
+            padding:30px 24px;
+
+        }
 
         }
 
@@ -369,219 +594,175 @@
                         Same-week appointments available.
                     </p>
 
-                </div>
+                    <div class="hero-trust">
 
+                        <div>
 
+                            <strong>★ 4.8/5</strong>
 
-                <!-- Medical Illustration
-                 (Phase 2: Inline SVG)
-                -->
+                            <span>Patient Rating</span>
 
-                <div class="hero-image">
-                    <div class="illustration-placeholder">
+                        </div>
 
-                    Medical Illustration
+                        <div>
 
-                </div>
-            </div>
+                            <strong>3200+</strong>
 
-        </section>
+                            <span>Patients</span>
 
+                        </div>
 
+                        <div>
 
-        <!-- =====================
-             TRUST SECTION
-        ====================== -->
+                            <strong>9</strong>
 
-        <section class="trust-section">
-            <div class="container">
+                            <span>Clinics</span>
 
-                <div class="hero-trust">
-
-                    <div>
-
-                        <strong>★ 4.8/5</strong>
-
-                        <span>Patient Rating</span>
-
-                    </div>
-
-                    <div>
-
-                        <strong>3200+</strong>
-
-                        <span>Patients</span>
-
-                    </div>
-
-                    <div>
-
-                        <strong>9</strong>
-
-                        <span>Clinics</span>
+                        </div>
 
                     </div>
 
                 </div>
-            </div>
 
-        </section>
+                    <div class="consultation-card">
 
-
-
-        <!-- =====================
-             CONSULTATION FORM
-        ====================== -->
-
-        <section class="consultation-section">
-
-            <div class="container">
-
-                <div class="consultation-card">
-
-                    <h2>Book Your Consultation</h2>
-
-                    <p>
-                        Find the nearest clinic and request
-                        a consultation in less than a minute.
-                    </p>
-
-
-
-                    <form id="consultationForm">
-
-                        <!-- Location -->
-
-                        <label for="location">
-                            Preferred Clinic
-                        </label>
-
-                        <select id="location" required>
-
-                            <option value="">
-                                Select Clinic
-                            </option>
-
-                            <option>
-                                Indiranagar
-                            </option>
-
-                            <option>
-                                Koramangala
-                            </option>
-
-                            <option>
-                                Whitefield
-                            </option>
-
-                            <option>
-                                Jayanagar
-                            </option>
-
-                        </select>
-
-
-
-                        <!-- Specialty -->
-
-                        <label for="specialty">
-                            Specialty
-                        </label>
-
-                        <select id="specialty" required>
-
-                            <option value="">
-                                Select Specialty
-                            </option>
-
-                            <option>
-                                Knee Pain
-                            </option>
-
-                            <option>
-                                Back Pain
-                            </option>
-
-                            <option>
-                                Sports Injury
-                            </option>
-
-                            <option>
-                                Joint Replacement
-                            </option>
-
-                        </select>
-
-
-
-                        <!-- Name -->
-
-                        <label for="name">
-                            Full Name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            placeholder="Enter your name"
-                            required
-                        >
-
-
-
-                        <!-- Phone -->
-
-                        <label for="phone">
-                            Phone Number
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="phone"
-                            placeholder="Enter your phone number"
-                            required
-                        >
-
-
-
-                        <!-- Submit -->
-
-                        <button type="submit">
-
-                            Book My Consultation
-
-                        </button>
-
-                    </form>
-
-
-
-                    <!-- Thank You State -->
-
-                    <div
-                        id="thankYouMessage"
-                        hidden
-                    >
-
-                        <h3>
-                            ✅ Thank You!
-                        </h3>
+                        <h2>Book Your Consultation</h2>
 
                         <p>
-
-                            We've received your consultation request.
-
-                            Our team will contact you shortly.
-
+                            Find the nearest clinic and request
+                            a consultation in less than a minute.
                         </p>
 
-                    </div>
 
-                </div>
+
+                        <form id="consultationForm">
+
+                            <!-- Location -->
+
+                            <label for="location">
+                                Preferred Clinic
+                            </label>
+
+                            <select id="location" required>
+
+                                <option value="">
+                                    Select Clinic
+                                </option>
+
+                                <option>
+                                    Indiranagar
+                                </option>
+
+                                <option>
+                                    Koramangala
+                                </option>
+
+                                <option>
+                                    Whitefield
+                                </option>
+
+                                <option>
+                                    Jayanagar
+                                </option>
+
+                            </select>
+
+
+
+                            <!-- Specialty -->
+
+                            <label for="specialty">
+                                Specialty
+                            </label>
+
+                            <select id="specialty" required>
+
+                                <option value="">
+                                    Select Specialty
+                                </option>
+
+                                <option>
+                                    Knee Pain
+                                </option>
+
+                                <option>
+                                    Back Pain
+                                </option>
+
+                                <option>
+                                    Sports Injury
+                                </option>
+
+                                <option>
+                                    Joint Replacement
+                                </option>
+
+                            </select>
+
+
+
+                            <!-- Name -->
+
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+
+
+                            <!-- Phone -->
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="Enter your phone number"
+                                required
+                            >
+
+
+
+                            <!-- Submit -->
+
+                            <button type="submit">
+
+                                Book My Consultation
+
+                            </button>
+
+                        </form>
+
+
+
+                        <!-- Thank You State -->
+
+                        <div id ="thankYouMessage" hidden>
+                            <h3>
+                                ✅ Thank You!
+                            </h3>
+
+                            <p>
+
+                                We've received your consultation request.
+
+                                Our team will contact you shortly.
+
+                            </p>
+
+                        </div>
+                    </div>
             </div>
 
         </section>
-
 
 
         <!-- =====================
@@ -783,15 +964,43 @@
          FOOTER
     ========================== -->
 
-    <footer>
+    <footer class="footer">
+
         <div class="container">
 
-            <p>
+            <h2>OrthoNow</h2>
 
-                © 2026 OrthoNow.
-                All Rights Reserved.
+            <p class="footer-tagline">
+                Orthopaedic Specialists
+            </p>
+
+            <p>
+                Serving patients across 9 clinics in Bengaluru.
+            </p>
+
+            <p>
+                Contact:
+                <a href="tel:+919876543210">
+                    +91 98765 43210
+                </a>
+            </p>
+
+            <div class="footer-links">
+
+                <a href="#">Privacy Policy</a>
+
+                <span>|</span>
+
+                <a href="#">Terms & Conditions</a>
+
+            </div>
+
+            <p class="copyright">
+
+                © 2026 OrthoNow. All Rights Reserved.
 
             </p>
+
         </div>
 
     </footer>
