@@ -50,23 +50,23 @@ window.dataLayer.push({
 
 ### Landing Page
 
-![Landing Page](screenshots/landing-page.png)
+![Landing Page](screenshots/Landing%20page.png)
 
 ### Mobile View
 
-![Mobile View](screenshots/mobile-view.png)
+![Mobile View](screenshots/Mobile%20screenshot.png)
 
 ### Thank You State
 
-![Thank You](screenshots/thank-you-state.png)
+![Thank You](screenshots/Thank%20you%20page.png)
 
 ### GTM Data Layer
 
-![Console](screenshots/datalayer-console.png)
+![Console](screenshots/GTM%20Event%20Fire%20Screenshot.png)
 
 ### Lighthouse Mobile
 
-![Lighthouse](screenshots/lighthouse-mobile.png)
+![Lighthouse](screenshots/screenshot-lighthouse-mobile.png)
 
 ---
 
